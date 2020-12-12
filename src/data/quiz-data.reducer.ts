@@ -1,5 +1,3 @@
-import { fetchType } from "./../types/quiz-types";
-
 const initialValue = {
   req_quiz: {
     amount: 1,
