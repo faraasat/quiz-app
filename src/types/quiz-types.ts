@@ -50,3 +50,8 @@ export interface IQuizData {
 export interface ChildType {
   children: React.ReactChild | React.ReactChildren;
 }
+
+export interface Loader {
+  showLoader: () => void | undefined;
+  hideLoader: () => void | undefined;
+}

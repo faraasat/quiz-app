@@ -44,10 +44,53 @@
       href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      .load {
+        position: absolute;
+        top: calc(50% - 4em);
+        left: calc(50% - 4em);
+        width: 6em;
+        height: 6em;
+        border: 1.1em solid rgba(15, 158, 253, 0.2);
+        border-left: 1.1em solid #087afc;
+        border-radius: 50%;
+        animation: load8 1.1s infinite linear;
+        transition: opacity 0.3s;
+      }
+
+      .loader {
+        position: absolute;
+        top: calc(50% - 4em);
+        left: calc(50% - 4em);
+      }
+
+      .loader--hide {
+        opacity: 0;
+        display: none;
+        width: 0px;
+        height: 0px;
+      }
+
+      @keyframes load8 {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
     <title>Quiz App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <div class="loader">
+      <div class="load"></div>
+      <span style="font-weight: bolder; color: #087afc; font-family: cursive"
+        >Loading...</span
+      >
+    </div>
   </body>
 </html>

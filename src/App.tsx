@@ -7,14 +7,16 @@ import QuizCard from "./Components/QuizCard/quiz-card.component";
 import { parseQuizData } from "./utils/util";
 import { QuizDataContext } from "./data/quiz-data.context";
 import { GetQuizData } from "./services/quiz-data";
+import { Loader } from "./types/quiz-types";
 
-function App() {
+const App: React.FC<Loader> = ({ hideLoader, showLoader }) => {
   const [quizData, setQuizData] = useState<parsedReturnType[]>();
   const [quizLoading, setQuizLoading] = useState<boolean>(false);
   const [cardChange, setCardChange] = useState<boolean>(false);
   const { combined_data } = useContext(QuizDataContext);
 
   useEffect(() => {
+    hideLoader();
     setQuizLoading(true);
     GetQuizData(combined_data.req_quiz)
       .then((res) => {
@@ -29,7 +31,7 @@ function App() {
         setCardChange(false);
         setQuizLoading(false);
       });
-  }, [combined_data.req_quiz]);
+  }, [combined_data.req_quiz, hideLoader]);
 
   return (
     <div>
@@ -42,6 +44,6 @@ function App() {
       <ToastContainer />
     </div>
   );
-}
+};
 
 export default App;
