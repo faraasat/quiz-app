@@ -9,6 +9,8 @@ import {
   RadioGroup,
   Typography,
 } from "@material-ui/core";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import CheckIcon from "@material-ui/icons/Check";
 import { useState } from "react";
 import { IQuizData } from "../../types/quiz-types";
 
@@ -77,17 +79,26 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
             <CardContent>
               <Typography
                 variant="h4"
-                style={{ textAlign: "center", marginBlockEnd: 30 }}
+                style={{
+                  textAlign: "center",
+                  marginBlockStart: 15,
+                  marginBlockEnd: 45,
+                  fontSize: "4vw",
+                  fontFamily: "Pacifico, cursive",
+                  fontWeight: "bolder",
+                  color: "violet",
+                }}
               >
                 Quiz Result
               </Typography>
               {typeof quizData != "undefined" && (
-                <span>
+                <span style={{}}>
                   <Typography
                     style={{
                       fontWeight: "bold",
                       fontSize: 19,
                       color: "lightgreen",
+                      fontFamily: "Bungee Inline, cursive",
                     }}
                   >
                     Total Questions: {quizData.length}
@@ -97,6 +108,8 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
                       fontWeight: "bold",
                       fontSize: 19,
                       color: "lightblue",
+                      fontFamily: "Bungee Inline, cursive",
+                      letterSpacing: 2,
                     }}
                   >
                     Correctly Answered: {correctAnswered}
@@ -106,6 +119,8 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
                       fontWeight: "bold",
                       fontSize: 19,
                       color: "red",
+                      fontFamily: "Bungee Inline, cursive",
+                      letterSpacing: 2,
                     }}
                   >
                     Wrong Answered: {quizData.length - correctAnswered}
@@ -126,6 +141,8 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
                         marginBlockEnd: 0,
                         marginBottom: 0,
                         paddingBottom: 0,
+                        fontFamily: "Bungee Inline, cursive",
+                        letterSpacing: 2,
                       }}
                     >
                       Your Percentage is:
@@ -135,6 +152,8 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
                         fontSize: 28,
                         color: "gold",
                         fontWeight: "bold",
+                        fontFamily: "Bungee Inline, cursive",
+                        letterSpacing: 2,
                       }}
                     >
                       {(correctAnswered / quizData.length) * 100}&nbsp;%
@@ -146,13 +165,18 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
                 style={{
                   width: "100%",
                   display: "flex",
-                  marginTop: 20,
+                  marginTop: 25,
                 }}
               >
                 <Button
                   variant="contained"
                   color="secondary"
                   onClick={handleCardChange}
+                  style={{
+                    fontFamily: "Knewave, cursive",
+                    fontSize: 20,
+                    letterSpacing: 2,
+                  }}
                   fullWidth
                 >
                   Okay, I got it!
@@ -164,13 +188,29 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
           <CardContent>
             <Typography
               variant="h4"
-              style={{ textAlign: "center", marginBlockEnd: 30 }}
+              style={{
+                textAlign: "center",
+                marginBlockStart: 15,
+                marginBlockEnd: 30,
+                fontSize: "4vw",
+                fontFamily: "Pacifico, cursive",
+                fontWeight: "bolder",
+                color: "lightblue",
+              }}
             >
               Quiz Questions
             </Typography>
             {typeof quizData != "undefined" && (
               <FormControl component="fieldset" error={error}>
-                <FormLabel component="legend">
+                <FormLabel
+                  component="legend"
+                  style={{
+                    fontFamily: "Londrina Solid, cursive",
+                    fontSize: 25,
+                    lineHeight: 1.3,
+                    letterSpacing: 1.7,
+                  }}
+                >
                   <span
                     style={{
                       color: "black",
@@ -179,7 +219,12 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
                   >
                     Question#&nbsp;{questionNumber + 1}:
                   </span>
-                  &nbsp;&nbsp;&nbsp;{quizData[questionNumber].question}
+                  &nbsp;&nbsp;&nbsp;
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: quizData[questionNumber].question,
+                    }}
+                  ></p>
                 </FormLabel>
                 <RadioGroup
                   name="quiz"
@@ -195,9 +240,10 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
                   {quizData[questionNumber].options.length === 4 ? (
                     <>
                       {quizData[questionNumber].options.map(
-                        (option: string) => {
+                        (option: string, index: number) => {
                           return (
                             <FormControlLabel
+                              key={index}
                               value={option}
                               control={<Radio disabled={radioDisabled} />}
                               label={option}
@@ -209,9 +255,10 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
                   ) : (
                     <span>
                       {quizData[questionNumber].options.map(
-                        (option: string) => {
+                        (option: string, index: number) => {
                           return (
                             <FormControlLabel
+                              key={index}
                               value={option}
                               control={<Radio disabled={radioDisabled} />}
                               label={option}
@@ -232,20 +279,50 @@ const AnswerCheckCard: React.FC<IQuizData> = ({ quizData, setCardChange }) => {
                       marginTop: 20,
                       width: "65%",
                       alignSelf: "flex-end",
+                      marginBottom: 15,
+                      fontFamily: "Knewave, cursive",
+                      fontSize: 20,
+                      letterSpacing: 2,
+                      paddingLeft: 30,
+                      paddingRight: 30,
+                      marginRight: 10,
                     }}
                   >
                     Next Question
+                    <ArrowForwardIcon
+                      style={{
+                        fontFamily: "Knewave, cursive",
+                        fontSize: 30,
+                        fontWeight: "bolder",
+                      }}
+                    />
                   </Button>
                 ) : (
                   <Button
                     variant="outlined"
-                    color="primary"
                     onClick={(e: React.FormEvent<EventTarget>) =>
                       handleCheck(e)
                     }
-                    style={{ marginTop: 20 }}
+                    style={{
+                      marginTop: 10,
+                      marginBottom: 15,
+                      fontFamily: "Knewave, cursive",
+                      fontSize: 25,
+                      letterSpacing: 2,
+                      paddingLeft: 30,
+                      paddingRight: 30,
+                      marginRight: 10,
+                      color: "green",
+                    }}
                   >
-                    CHECK ANSWER
+                    CHECK ANSWER&nbsp;
+                    <CheckIcon
+                      style={{
+                        fontFamily: "Knewave, cursive",
+                        fontSize: 50,
+                        fontWeight: "bolder",
+                      }}
+                    />
                   </Button>
                 )}
               </FormControl>

@@ -33,12 +33,30 @@ const InitialCard: React.FC<IInitialCard> = ({ setCardChange }) => {
         <CardContent>
           <Typography
             variant="h4"
-            style={{ textAlign: "center", marginBlockEnd: 30 }}
+            style={{
+              textAlign: "center",
+              marginBlockStart: 15,
+              marginBlockEnd: 25,
+              fontSize: "4vw",
+              fontFamily: "Pacifico, cursive",
+              fontWeight: "bolder",
+              color: "pink",
+            }}
           >
             Quiz Form
           </Typography>
           <div>
-            <Typography>Please Enter Number of Questions</Typography>
+            <Typography
+              style={{
+                fontFamily: "Sofia, cursive",
+                fontSize: 22,
+                fontWeight: "bold",
+                color: "teal",
+                marginBottom: 5
+              }}
+            >
+              Please Enter Number of Questions
+            </Typography>
             <TextField
               error={quizData.amount === 0 || quizData.amount > 50}
               helperText="amount should not be 0 or exceed 50"
@@ -59,7 +77,17 @@ const InitialCard: React.FC<IInitialCard> = ({ setCardChange }) => {
             />
           </div>
           <div style={{ marginTop: 25 }}>
-            <Typography>Please Select The Category</Typography>
+            <Typography
+              style={{
+                fontFamily: "Sofia, cursive",
+                fontSize: 22,
+                fontWeight: "bold",
+                color: "teal",
+                marginBottom: 5
+              }}
+            >
+              Please Select The Category
+            </Typography>
             <FormControl variant="filled" style={{ width: "100%" }}>
               <InputLabel id="category">Any Category</InputLabel>
               <Select
@@ -110,7 +138,17 @@ const InitialCard: React.FC<IInitialCard> = ({ setCardChange }) => {
             </FormControl>
           </div>
           <div style={{ marginTop: 25 }}>
-            <Typography>Please Select The Difficulty</Typography>
+            <Typography
+              style={{
+                fontFamily: "Sofia, cursive",
+                fontSize: 22,
+                fontWeight: "bold",
+                color: "teal",
+                marginBottom: 5
+              }}
+            >
+              Please Select The Difficulty
+            </Typography>
             <FormControl variant="filled" style={{ width: "100%" }}>
               <InputLabel id="difficulty">Any Difficulty</InputLabel>
               <Select
@@ -133,7 +171,17 @@ const InitialCard: React.FC<IInitialCard> = ({ setCardChange }) => {
             </FormControl>
           </div>
           <div style={{ marginTop: 25 }}>
-            <Typography>Please Select The Type</Typography>
+            <Typography
+              style={{
+                fontFamily: "Sofia, cursive",
+                fontSize: 22,
+                fontWeight: "bold",
+                color: "teal",
+                marginBottom: 5
+              }}
+            >
+              Please Select The Type
+            </Typography>
             <FormControl variant="filled" style={{ width: "100%" }}>
               <InputLabel id="type">Any Type</InputLabel>
               <Select
@@ -168,6 +216,12 @@ const InitialCard: React.FC<IInitialCard> = ({ setCardChange }) => {
             style={{
               marginTop: 10,
               marginBottom: 15,
+              fontFamily: "Knewave, cursive",
+              fontSize: 20,
+              letterSpacing: 2,
+              paddingLeft: 30,
+              paddingRight: 30,
+              marginRight: 10,
             }}
           >
             Proceed ...

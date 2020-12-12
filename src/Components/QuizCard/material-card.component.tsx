@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   root: {
     minWidth: '35vw',
     borderRadius: 10,
+    backgroundColor: 'rgb(244, 255, 254)'
   },
 });
 
