@@ -1,4 +1,4 @@
-# 👨‍💻 React Quiz App (Progressive Web App).
+# 👨‍💻 React Quiz App.
 ## 📽 A project based on Panacloud React Bootcamp [Project 6].
 
 ### ⚒ Project Demo:
